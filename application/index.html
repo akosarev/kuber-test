@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>Factorial with cache</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+</head>
+
+<body>
+
+    <p>Please provide positive number:</p>
+    <input id="myNumber" />
+    <button id="guess">Factorial!</button>
+
+    <div id="result"></div>
+    <script type="text/javascript">
+        document.getElementById("guess").onclick=function() {
+            var number = document.getElementById("myNumber").value
+            if (number < 1){
+            alert('Only positive numbers are allowed');
+            return;}
+            let cache = [1];
+            function factMemoize(key) {
+                if (!cache[key]) {
+                  cache[key] = key * factMemoize(key - 1)
+                }
+                return cache[key]
+            }
+            var result = factMemoize(number)
+            document.getElementById("result").innerHTML = "Result is: "+result;
+        }
+
+
+</script>
+
+</body>
+</html>
