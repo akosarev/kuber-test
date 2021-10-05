@@ -1,4 +1,4 @@
-name: "Main: Deploy application"
+name: "Main: Build application"
 
 # Controls when the workflow will run
 on:
